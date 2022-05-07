@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SchoolInfo from '../src/components/SchoolInfo.vue'
+import SchoolInfo from '../src/components/StudentInfo.vue'
 export default {
     name: 'App',
     data() {
