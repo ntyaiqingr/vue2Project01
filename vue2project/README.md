@@ -45,3 +45,7 @@
             Vue.prototype.$myMethod = function() {...}
             Vue.prototype.$myProperty = xxxx
         }
+
+## scoped样式
+    作用 让式样在局部中生效 防止冲突
+    写法 <style scoped>
