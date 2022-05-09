@@ -29,3 +29,19 @@
         第二步：使用混入
         1）全局混入 Vue.mixin(XXX)
         2) 局部混入 mixins: ['XXX']
+
+## 插件
+    功能： 用于增强Vue
+    本质: 包含install方法的一个对象 install的第一个参数是Vue，第二个以后的参数是插件使用者传递的数据
+    定义插件：
+        对象.intall = function(Vue, options) {
+            //添加全局过滤器
+            Vue.filter(...)
+            //添加全局指令
+            Vue.directive(...)
+            //配置全局混入
+            Vue.mixin(...)
+            //添加实例方法
+            Vue.prototype.$myMethod = function() {...}
+            Vue.prototype.$myProperty = xxxx
+        }
