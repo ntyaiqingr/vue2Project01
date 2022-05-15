@@ -28,11 +28,7 @@
         },
         data() {
             return {
-                todos: [
-                    {id: '0001', title: 'Eat food', completed: false},
-                    {id: '0002', title: 'Sleep', completed: false},
-                    {id: '0003', title: 'Miss you', completed: true}
-                ]
+                todos: JSON.parse(localStorage.getItem('todos')) || []
             }
         },
         methods: {
@@ -62,6 +58,14 @@
                 this.todos = this.todos.filter((todo)=>{
                     return !todo.completed
                 })
+            }
+        },
+        watch: {
+            todos:{
+                deep: true,
+                handler(value){
+                    localStorage.setItem('todos', JSON.stringify(value))
+                }
             }
         }
     }
