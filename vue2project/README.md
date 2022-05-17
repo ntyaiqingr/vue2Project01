@@ -63,3 +63,18 @@
     3.使用v-model的时候要切记：v-model绑定的值不能是props传来的值 因为props是不可以修改的
     4.props传来的若是对象类型的值 修改对象中的属性时Vue并不会报错 但不推荐这么使用
     
+## 组件的自定义事件
+    1. 一种组件间的通信方式 适用于 子组件===>父组件
+    2. 使用场景 A是父组件 B是子组件 B想给A传数据 那么就需要A中给B绑定自定义事件 事件的回调在A中
+    3. 绑定自定义事件
+        1）第一种方式 在父组件中 <demo @bindEvent="test"/> || <demo v-on:bindEvent="test"/>
+        2) 第二种方式 在父组件中：
+        <Demo ref="demo"/>
+        mounted(){
+            this.$refs.XXX.$on("bindEvent", this.test)
+        }
+        3) 若想让自定义事件只能触发一次 可以使用one修饰符 或者$once方法
+    4. 触发自定义事件：this.$emit("loveyou", data)
+    5. 接触自定义事件 this.$off("loveyou")
+    6. 组件上也可以绑定原生DOM事件 需要用native修饰符
+    7. 通过this.$refs.XXX.$on("loveyou", 回调)绑定自定义事件，回调那么配置在methods中，要么使用箭头函数 否则this指向会出问题
